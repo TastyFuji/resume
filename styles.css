@@ -1,0 +1,121 @@
+/* Background and Typography */
+body {
+    background: #f4f4f4 url('img/background-paper.jpg') no-repeat center center fixed;
+    background-size: cover;
+    font-family: "Courier New", Courier, monospace; /* ฟอนต์เหมือนเครื่องพิมพ์ดีด */
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+/* Navbar */
+.navbar-dark .navbar-brand {
+    font-size: 1.5rem;
+    font-family: "Courier New", Courier, monospace;
+    font-weight: bold;
+}
+
+.navbar-dark .nav-link {
+    color: #fff;
+    font-family: "Courier New", Courier, monospace;
+}
+
+.navbar-dark .nav-link:hover {
+    color: #ff6666;
+}
+
+.file-container {
+    background: #f4f4f4 url('img/paper-texture.jpg');
+    padding: 20px 40px;
+    border: 1px solid #1b1b1b2f;
+    border-radius: 3px;
+    max-width: 800px;
+    margin: 30px auto; /* Add spacing from top */
+    box-shadow: 10px 11px 5px -4px rgba(0,0,0,0.29);
+}
+.top-secret-container {
+    display: flex;
+    flex-direction: column; /* วางข้อความและรูปในแนวตั้ง */
+    align-items: center; /* จัดให้อยู่ตรงกลาง */
+    gap: 15px; /* ระยะห่างระหว่างข้อความและรูป */
+}
+/*รูปโปร*/
+.profile-photo {
+    width: 200px; /* ขนาดรูปภาพ */
+    height: 250px; /* ความสูงรูปภาพ */
+    object-fit: cover; /* ปรับให้ภาพอยู่ในกรอบ */
+    border: 1px solid #1d1d1da4; /* ขอบสีแดง */
+    border-radius: 50%;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); /* เพิ่มเงา */
+    filter: grayscale(100%) contrast(0.8) brightness(1.1); /* ทำให้เป็นขาวดำ ดูเก่า */
+    opacity: 0.9; /* เพิ่มความโปร่งใสเล็กน้อย */
+    transition: filter 0.3s ease, opacity 0.3s ease; /* เพิ่มเอฟเฟกต์เมื่อ hover */
+}
+.profile-photo:hover {
+    filter: grayscale(0) contrast(1) brightness(1); /* เพิ่มความเข้มเล็กน้อย */
+    opacity: 1; /* ลดความโปร่งใสเมื่อ hover */
+}
+
+
+/* Header Stamp Style */
+h1.display-4 {
+    font-family: "Special Elite", system-ui;
+    font-weight: bold;
+    border: 3px solid red;
+    display: inline-block;
+    padding-top: 20px;
+    padding-bottom: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    transform: rotate(-10deg);
+    color: red;
+}
+.name {
+
+    margin-top: 30px;
+
+}
+/* Section Titles */
+.section-title {
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    text-decoration: underline;
+}
+
+/* Dashed Line for Sections */
+.dashed-line {
+    border: none;
+    border-top: 2px dashed #333;
+    margin: 20px 0;
+}
+
+/* List Styles */
+ul, ol {
+    margin-left: 20px;
+}
+
+/* Link Styles */
+a {
+    color: #ff6666;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .file-container {
+        padding: 15px 20px;
+    }
+
+    h1.display-4 {
+        font-size: 2rem;
+    }
+
+    .section-title {
+        font-size: 1.2rem;
+    }
+}
