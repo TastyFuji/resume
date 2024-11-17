@@ -25,6 +25,7 @@ body {
 }
 
 .file-container {
+    position: relative;
     background: #f4f4f4 url('img/paper-texture.jpg');
     padding: 20px 40px;
     border: 1px solid #1b1b1b2f;
@@ -33,33 +34,29 @@ body {
     margin: 30px auto; /* Add spacing from top */
     box-shadow: 10px 11px 5px -4px rgba(0,0,0,0.29);
 }
-.top-secret-container {
-    display: flex;
-    flex-direction: column; /* วางข้อความและรูปในแนวตั้ง */
-    align-items: center; /* จัดให้อยู่ตรงกลาง */
-    gap: 15px; /* ระยะห่างระหว่างข้อความและรูป */
+.file-container-normal {
+    position: relative;
+    background: white;
+    padding: 20px 40px;
+    border: 1px solid #1b1b1b2f;
+    border-radius: 3px;
+    max-width: 800px;
+    margin: 30px auto; /* Add spacing from top */
+    box-shadow: 10px 11px 5px -4px rgba(0,0,0,0.29);
 }
-/*รูปโปร*/
-.profile-photo {
-    width: 200px; /* ขนาดรูปภาพ */
-    height: 250px; /* ความสูงรูปภาพ */
-    object-fit: cover; /* ปรับให้ภาพอยู่ในกรอบ */
-    border: 1px solid #1d1d1da4; /* ขอบสีแดง */
-    border-radius: 50%;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); /* เพิ่มเงา */
-    filter: grayscale(100%) contrast(0.8) brightness(1.1); /* ทำให้เป็นขาวดำ ดูเก่า */
-    opacity: 0.9; /* เพิ่มความโปร่งใสเล็กน้อย */
-    transition: filter 0.3s ease, opacity 0.3s ease; /* เพิ่มเอฟเฟกต์เมื่อ hover */
-}
-.profile-photo:hover {
-    filter: grayscale(0) contrast(1) brightness(1); /* เพิ่มความเข้มเล็กน้อย */
-    opacity: 1; /* ลดความโปร่งใสเมื่อ hover */
+.profile-container {
+    position: relative;
+    display: inline-block;
+    width: 200px;
 }
 
-
-/* Header Stamp Style */
+/* top secret */
 h1.display-4 {
+    position: absolute;
     font-family: "Special Elite", system-ui;
+    top: 10px;
+    right: 80%;
+    z-index: 2;
     font-weight: bold;
     border: 3px solid red;
     display: inline-block;
@@ -67,8 +64,43 @@ h1.display-4 {
     padding-bottom: 5px;
     padding-left: 10px;
     padding-right: 10px;
-    transform: rotate(-10deg);
+    transform: rotate(-45deg);
     color: red;
+}
+.display-4-hide {
+
+    visibility: hidden;
+
+}
+/*รูปโปร*/
+.profile-photo {
+    width: 200px; 
+    height: 250px;
+    margin-top: 30px;
+    object-fit: cover; 
+    border: 1px solid #1d1d1da4;
+    border-radius: 2%;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    filter: grayscale(100%) contrast(0.8) brightness(1.1);
+    opacity: 0.9;
+    transition: filter 0.3s ease, opacity 0.3s ease; 
+}
+.profile-photo-normal {
+
+    width: 200px; 
+    height: 250px;
+    margin-top: 30px;
+    object-fit: cover; 
+    border: 1px solid #1d1d1da4;
+    border-radius: 2%;
+    filter: grayscale(0) contrast(1) brightness(1);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    opacity: 1;
+
+}
+.profile-photo:hover {
+    filter: grayscale(0) contrast(1) brightness(1);
+    opacity: 1; 
 }
 .name {
 
@@ -104,7 +136,32 @@ a {
 a:hover {
     text-decoration: underline;
 }
+/* ปุ่มที่มุมขวาบน */
 
+.top-right-button {
+    position: absolute; /* ตำแหน่งอ้างอิงจาก .file-container */
+    top: 10px; /* ระยะห่างจากด้านบน */
+    right: 10px; /* ระยะห่างจากด้านขวา */
+    z-index: 10; /* ให้อยู่เหนือเนื้อหาอื่น ๆ */
+}
+
+.top-right-button button {
+    font-family: "Special Elite", system-ui;
+    font-weight: bold;
+    color: rgb(255, 0, 0); /* สีข้อความ */
+    background-color: #00000000;
+    border: 2px solid red; /* ลบขอบปุ่ม */
+    border-radius: 2px; /* ขอบมน */
+    padding: 5px 5px; /* ขนาดปุ่ม */
+    cursor: pointer; /* เปลี่ยนเคอร์เซอร์เมื่อชี้ปุ่ม */
+    font-size: 12px; /* ขนาดฟอนต์ */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* เงา */
+    transition: background-color 0.3s ease; /* เพิ่มเอฟเฟกต์เวลา hover */
+}
+
+.top-right-button button:hover {
+    background-color: #00000031; /* สีปุ่มเมื่อ hover */
+}
 /* Responsive Adjustments */
 @media (max-width: 768px) {
     .file-container {
@@ -117,5 +174,14 @@ a:hover {
 
     .section-title {
         font-size: 1.2rem;
+    }
+    .top-right-button {
+        top: 5px; /* ลดระยะห่างสำหรับหน้าจอเล็ก */
+        right: 5px;
+    }
+
+    .top-right-button button {
+        font-size: 10px; /* ลดขนาดฟอนต์ */
+        padding: 4px 8px; /* ลดขนาดปุ่ม */
     }
 }
